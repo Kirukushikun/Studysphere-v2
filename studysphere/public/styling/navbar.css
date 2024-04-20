@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{  
+    margin: 0;
+    font-family: "Quicksand";
+}
+
+.navbar{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-bottom: 1px solid #f2f2f2;
+
+    color: #333;
+}
+
+.navbar #logo{
+    width: 70px;
+    margin-right: 10px;
+}
+
+.navbar h1{
+    font-size: 170%;
+    color: #72B5C5;
+}
+.navbar .links{
+    margin-left: auto;
+}
+.navbar .menubar{
+    display: none;
+}
+.navbar .menubar i{
+    color: #72B5C5;
+    cursor: pointer;
+    font-size: 40px;
+    transition: 0.4s ease;
+}.navbar .menubar i:hover{
+    transform: scale(1.1);
+}
+.navbar a{
+    font-size: 120%;
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+    color: #333;
+    font-weight: 400;
+}
+.navbar a:hover{
+    color: #72B5C5;
+}
+
+.userStatus{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    right: 0;
+}
+.userStatus .login a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    background-color: #72B5C5;
+    color: white;
+
+    border-radius: 6px;
+    padding: 10px 15px;
+
+    margin-right: 20px;
+}
+.userStatus .login a:hover{
+    background-color: #4680A8;
+    color: #f2f2f2;
+}
+.userStatus .logout a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+
+    background-color: #72B5C5;
+    color: white;
+
+    border-radius: 6px;
+    padding: 10px 15px;
+
+    margin-right: 20px;
+}
+.userStatus .logout a:hover{
+    background-color: #4680A8;
+    color: #f2f2f2;
+}
+.user{
+    margin-right: -10px;
+}
+.user b{
+    color: #72B5C5;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Collapsing */
+.menuLinks{
+    position: fixed;
+    background-color: #72B5C5;
+    height: 100vh;
+    width: 300px;
+    opacity: 0;
+    flex-direction: column;
+    right: -300px;
+    top: 0;
+    z-index: 1;
+
+    transition: 0.5s ease;
+}
+
+.links2{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-right: 20px;
+}.links2 a {
+    color: #f2f2f2;
+    font-size: 20px;
+    transition: 0.4s ease;
+    border-radius: 7px;
+    margin-left: 17px;
+    padding-left: 10px;
+}.links2 a:hover{
+    background-color: #3f67706a;
+    color: #f2f2f2;
+}
+.menubar2{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 20px 0px;
+}
+.menubar2 i{
+    color: #f2f2f2;
+    cursor: pointer;
+    font-size: 40px;
+    transition: 0.4s ease;
+
+    width: 100%;
+    text-align: end;
+}.navbar .menubar i:hover{
+    transform: scale(1.1);
+}
+
+.userStatus2{
+    position: absolute;
+    bottom: 5%;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.userStatus2 .logout, .login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.userStatus2 .logout a, .login a{
+    width: 90%;
+    text-align: center;
+    background-color: #3f6770;
+    color: #f2f2f2;
+    transition: 0.3s ease;
+    border-radius: 6px;
+    margin-right: 15px;
+}.userStatus2 .logout a:hover, .login a:hover{
+    background-color: #35607d;
+    color: white;
+}
+/* Collapsing */
+
+@media(max-width: 1094px){
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar #logo{
+        margin-right: 0;
+        padding-right: 0;
+        width: 60px;
+    }
+
+    .navbar .menubar{
+        display: flex;
+    }
+    .links{
+        display: none;
+    }
+    .userStatus{
+        display: none;
+    }
+
+    .menuLinks.Active{
+        opacity: 1;
+        right: 0;
+    }
+}
+
+@media(max-width: 1399px){
+    .links{
+        margin-right: 10%;
+    }
+}
+@media(max-width: 1183px){
+    .links{
+        margin-right: 15%;
+    }
+}
