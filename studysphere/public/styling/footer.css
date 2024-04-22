@@ -135,7 +135,7 @@ footer{
 }
 @media(max-width: 320px){
 
-    .content{
+    .footercontainer1 .content{
         display: flex;
         flex-direction: column;
         align-items: center;

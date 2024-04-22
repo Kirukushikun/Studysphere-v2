@@ -1,0 +1,195 @@
+/* ABOUT PAGE STYLING */
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-bottom: 100px;
+
+    color: #333;
+}
+
+/* CONTAINER 1 */
+.container1{
+    max-width: 1000px;
+}
+.container1 .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 700px;
+
+    text-align: center;
+
+    height: 500px;
+
+    font-size: 23px;
+
+    gap: 20px;
+}
+/* /CONTAINER 1 */
+
+/* Container 2 */
+.container2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f7f8;
+    padding: 20px 0;
+}
+.container2 .content{
+    max-width: 1000px;
+
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: "detail1 detail2";
+
+    height: 500px;
+}
+.container2 .content .founderImage{
+    grid-area: "detail1";
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+.founderImage img{
+    width: 350px;
+    margin: auto;
+    border-radius: 6px;
+}
+.container2 .content .founderDetails{
+grid-area: "detail2";
+padding: 20px;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+text-align: left;
+
+gap: 15px;
+
+font-size: 20px;
+}.container2 .content .founderDetails h2{
+color: #72B5C5;
+}
+/* Container 2 */
+
+/* Container 3 */
+.container3{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+.container3 .content{
+    max-width: 1000px;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: "codetail1 codetail2";
+    height: 500px;
+}
+
+.container3 .content .cofounderDetails{
+    grid-area: "codetail1";
+
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: left;
+
+    gap: 15px;
+
+    font-size: 20px;
+}.container3 .content .cofounderDetails h2{
+    color: #72B5C5;
+}
+
+.container3 .content .cofounderImage{
+    grid-area: "codetail2";
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cofounderImage img{
+    width: 350px;
+    margin: auto;
+    border-radius: 6px;
+}
+/* Container 3 */
+
+@media(max-width: 893px){
+    .container2 .content{
+        text-align: center;
+        
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-areas: "detail2"
+        "detail1";
+        
+        height: auto;
+        margin: 20px 0;
+    }
+    .container2 .content .founderDetails{
+        grid-area: "detail1";
+
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        padding: 20px 80px;
+
+        gap: 5px;
+    }
+
+    .container3 .content{
+        text-align: center;
+        
+        display: flex;
+        flex-direction: column-reverse;
+        
+        height: auto;
+        margin: 20px 0;
+    }
+    .container3 .content .cofounderDetails{
+        grid-area: "detail1";
+
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        padding: 20px 80px;
+
+        gap: 5px;
+    }
+}
+
+@media(max-width: 443px){
+    .container1 .content{
+        font-size: 20px;
+    }
+
+    .content img{
+        width: 250px;
+    }
+
+    .content h2, h1{
+        font-size: 25px;
+    }.content p{
+        font-size: 18px;
+    }
+}
