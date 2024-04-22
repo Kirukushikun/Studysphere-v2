@@ -1,14 +1,17 @@
+@include('components.navbar')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('styling/homepage.css')}}">
+    <link rel="stylesheet" href="{{asset('styling/navbar.css')}}">
     <title>Studysphere</title>
 </head>
 <body>
-    
-<div class="home">
+
+    @yield('navbar')
+    <div class="home">
         <div class="container1">
             <div class="content">
                 <div class="details">
