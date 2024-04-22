@@ -1,4 +1,5 @@
 @include('components.navbar')
+@include('components.footer')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('styling/homepage.css')}}">
     <link rel="stylesheet" href="{{asset('styling/navbar.css')}}">
+    <link rel="stylesheet" href="{{asset('styling/footer.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Studysphere</title>
 </head>
-<body>
 
+<body>
     @yield('navbar')
     <div class="home">
         <div class="container1">
@@ -62,6 +65,6 @@
             </div>
         </div>
     </div>
-
+    @yield('footer')
 </body>
 </html>
