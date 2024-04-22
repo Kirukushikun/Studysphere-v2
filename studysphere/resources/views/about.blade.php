@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
     @yield('navbar')
     <div class="about">
 
