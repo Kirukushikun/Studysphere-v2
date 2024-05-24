@@ -18,6 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/posts', function () {
+    return view('posts');
+});
+
+Route::get('/publish', function () {
+    return view('publish');
+});
+
+Route::get('/comments', function () {
+    return view('comments');
+});
+
 Route::get('/dashboard', function () {
     return view('dash');
 })->middleware(['auth', 'verified'])->name('dashboard');
