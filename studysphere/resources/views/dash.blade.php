@@ -133,12 +133,12 @@
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="route('profile.edit')">
+                            <x-responsive-nav-link :href="route('profile.edit')" class="dropdown-item d-flex align-items-center">
                                 <i class="bi bi-gear"></i>
                                 <span>
                                     {{ __('Profile') }}
                                 <span>
-                            </a>
+                            </x-responsive-nav-link>
                         </li>
                         <li>
                             <hr class="dropdown-divider" />
@@ -147,10 +147,15 @@
                             <hr class="dropdown-divider" />
                         </li>
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Sign Out</span>
-                            </a>
+                            <form method="POST" action="{{ route('logout')}}">
+                                @csrf
+                                <x-responsive-nav-link :href="route('logout')" class="dropdown-item d-flex align-items-center"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>{{ __('Log Out') }}</span>
+                                </x-responsive-nav-link>                               
+                            </form>
                         </li>
                     </ul>
                     <!-- End Profile Dropdown Items -->
