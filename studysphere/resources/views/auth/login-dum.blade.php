@@ -1,5 +1,4 @@
-<x-guest-layout>
-    <main>
+<main>
         <div class="container">
             <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                 <div class="container">
@@ -9,7 +8,7 @@
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <div class="pt-4 pb-2">
-                                        <p class="small">{{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}</p>
+                                        <h5 class="card-title text-center pb-0 fs-4">{{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}</h5>
                                     </div>
 
                                     <!-- Session Status -->
@@ -41,4 +40,3 @@
             </section>
         </div>
     </main>
-</x-guest-layout>
