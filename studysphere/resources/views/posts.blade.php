@@ -39,7 +39,7 @@
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
-                
+
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" />
@@ -92,6 +92,41 @@
         <!-- End Icons Navigation -->
     </header>
     <!-- End Header -->
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="card m-auto mb-5 col-9">
+        <div class="card-body">
+            <h4 class="card-title">Card with header and footer</h4>
+            <h5 class="card-subtitle mb-3 text-muted"><b>Author: </b>Iverson Guno</h5>
+            Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti
+            inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse
+            natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus
+            voluptas. Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem
+            numquam. Enim fuga ipsum dolor nulla quia ut. Rerum dolor voluptatem et deleniti libero
+            totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
+        </div>
+        <div class="card-footer">
+            <h5 class="card-subtitle mb-3 text-muted"><b>Comments:</b></h5>
+            <!-- Comment -->
+            <div class="comment ms-3 mb-4">
+                <div class="profile d-flex">
+                    <i class="bi bi-person-circle me-2"></i>
+                    <h5>Iverson Guno</h5>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptate!</p>
+            </div>
+            <!-- End Comment -->
+            <hr>
+            <div class="form-group d-flex">
+                <input type="email" class="form-control me-2" placeholder="Enter a Comment">
+                <button class="btn btn-primary">Comment</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
