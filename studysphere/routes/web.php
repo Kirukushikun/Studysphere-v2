@@ -30,6 +30,10 @@ Route::get('/comments', function () {
     return view('comments');
 });
 
+Route::get('/user', function () {
+    return view('userprofile');
+});
+
 Route::get('/dashboard', function () {
     return view('dash');
 })->middleware(['auth', 'verified'])->name('dashboard');
