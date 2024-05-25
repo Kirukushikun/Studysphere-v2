@@ -172,7 +172,7 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link collapsed" href="/dashboard">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -190,7 +190,7 @@
             <!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/publish">
+                <a class="nav-link" href="/publish">
                     <i class='bx bx-book' ></i>
                     <span>Publish</span>
                 </a>
