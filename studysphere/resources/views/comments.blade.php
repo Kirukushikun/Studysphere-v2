@@ -223,7 +223,7 @@
             <!-- End Page Title -->
 
             <section class="section">
-                <div class="card m-auto mb-5">
+                <div class="card m-auto mb-3">
                     <div class="card-body">
                         <h4 class="card-title">Card with header and footer</h4>
                         Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti
@@ -250,13 +250,27 @@
                             </div>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptate!</p>
                         </div>
+                        <div class="comment ms-3 mb-4">
+                            <div class="profile d-flex justify-content-between">
+                                <div class="details d-flex">
+                                    <i class="bi bi-person-circle me-2"></i>
+                                    <h5>Iverson Guno</h5>
+                                </div>
+                                <div class="action d-flex" style="font-size:25px;">
+                                    <i class='bx bx-check' ></i>
+                                    <i class='bx bx-x' ></i>
+                                    <i class='bx bx-trash'></i>
+                                </div>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptate!</p>
+                        </div>
                         <!-- End Comment -->
                     </div>
                 </div>
             </section>
+
         </main>
         <!-- End #main -->
-
 
         <!-- ======= Footer ======= -->
         <footer id="footer" class="footer">
