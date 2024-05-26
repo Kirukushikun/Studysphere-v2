@@ -35,7 +35,7 @@
         <main id="main" class="main">
             <div class="pagetitle position-relative">
                 <h1>Data Tables</h1>
-                <button type="button" class="btn btn-warning position-absolute top-0 end-0 mt-3">Go back</button>
+                <button type="button" class="btn btn-warning position-absolute top-0 end-0 mt-3" onclick="location.href='/postmanager'">Go back</button>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>

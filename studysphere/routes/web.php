@@ -29,8 +29,11 @@ Route::get('/form', [PostController::class, 'post'])->name('post.load');
 
 Route::post('/form', [PostController::class, 'addPost'])->name('post.post');//ADD
 Route::delete('/form/{id}', [PostController::class, 'deletePost'])->name('post.delete');//DELETE
-Route::get('form/edit/{id}', [PostController::class, 'editPost'])->name('post.edit');
+Route::get('post/edit/{id}', [PostController::class, 'editPost'])->name('post.edit');//EDIT
 
+Route::get('/edit', function () {
+    return view('edit-post');
+});
 
 Route::get('/comments', function () {
     return view('comments');
