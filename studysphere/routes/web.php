@@ -23,16 +23,6 @@ Route::get('/posts', function () {
     return view('posts');
 });
 
-
-
-
-
-// Route::get('/publish', function () {
-//     return view('publish');
-// });
-
-
-
 Route::get('/publish', [PostController::class, 'loadPost'])->name('publish');
 
 Route::get('/add', function () {
@@ -40,10 +30,6 @@ Route::get('/add', function () {
 });
 
 Route::post('/addpost', [PostController::class, 'addPost'])->name('post.add');
-
-
-
-
 
 
 Route::get('/comments', function () {
