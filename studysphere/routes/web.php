@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +23,28 @@ Route::get('/posts', function () {
     return view('posts');
 });
 
-Route::get('/publish', function () {
-    return view('publish');
+
+
+
+
+// Route::get('/publish', function () {
+//     return view('publish');
+// });
+
+
+
+Route::get('/publish', [PostController::class, 'loadPost'])->name('publish');
+
+Route::get('/add', function () {
+    return view('add-post');
 });
+
+Route::post('/addpost', [PostController::class, 'addPost'])->name('post.add');
+
+
+
+
+
 
 Route::get('/comments', function () {
     return view('comments');

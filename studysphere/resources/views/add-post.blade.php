@@ -211,7 +211,7 @@
     <main id="main" class="main">
         <div class="pagetitle position-relative">
             <h1>Data Tables</h1>
-            <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3" onclick="location.href='/add'">Add new post</button>
+            <button type="button" class="btn btn-warning position-absolute top-0 end-0 mt-3">Go back</button>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -223,50 +223,44 @@
         </div>
         <!-- End Page Title -->
 
-        <section class="section">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <br>
-                            <!-- Table with stripped rows -->
-                            <table class="table datatable">
-                                <thead>
-                                    <tr>
-                                        <th class="col-2">Subject</th>
-                                        <th class="col-7">Post</th>
-                                        <th class="col-2">Status</th>
-                                        <th class="col-1">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($posts as $post)
-                                    <tr>
-                                        <td>{{$post->subject}}</td>
-                                        <td>{{$post->post}}</td>
-                                        <td>{{$post->status}}</td>
-                                        <td class="d-flex justify-content-between">
-                                            <button class="btn btn-info me-2">
-                                                <i class="bi bi-box-arrow-in-right"></i>
-                                            </button>
-                                            <button class="btn btn-success me-2">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </button>
-                                            <button class="btn btn-danger ">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>                                    
-                                    @endforeach
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Add new post</h5>
 
-                                </tbody>
-                            </table>
-                            <!-- End Table with stripped rows -->
+                <!-- Floating Labels Form -->
+                <form class="row g-3" action="{{route('post.add')}}" method="POST">
+                    @csrf
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingName" name="subject" placeholder="Subject" />
+                            <label for="floatingName">Subject</label>
                         </div>
                     </div>
-                </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" name="status" aria-label="State">
+                                <option selected>Unpublished</option>
+                                <option value="1">published</option>
+                            </select>
+                            <label for="floatingSelect">Status</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Post" id="floatingTextarea" name="post" style="height: 100px"></textarea>
+                            <label for="floatingTextarea">Post</label>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+                <!-- End floating Labels Form -->
             </div>
-        </section>
+        </div>
+
     </main>
     <!-- End #main -->
 

@@ -190,7 +190,7 @@
             <!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/publish">
+                <a class="nav-link collapsed" href="{{route('publish')}}">
                     <i class='bx bx-book' ></i>
                     <span>Publish</span>
                 </a>
