@@ -70,7 +70,7 @@
                                         <td>{{$post->post}}</td>
                                         <td>{{$post->status}}</td>
                                         <td class="d-flex justify-content-between">
-                                            <button class="btn btn-info me-2" >
+                                            <button class="btn btn-info me-2" onclick="location.href='{{ route('post.view', $post->id) }}'">
                                                 <i class="bi bi-box-arrow-in-right"></i>
                                             </button>
                                             <button class="btn btn-success me-2" onclick="location.href='{{ route('post.edit', $post->id) }}'">
