@@ -140,7 +140,7 @@
     <!-- End Header -->
 @endsection
 
-@section('sidebar')
+@section('sidebar-dashboard')
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
@@ -173,6 +173,92 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/comments">
+                    <i class='bx bx-message-dots' ></i>
+                    <span>Comments</span>
+                </a>
+            </li>
+            <!-- End F.A.Q Page Nav -->
+        </ul>
+    </aside>
+    <!-- End Sidebar-->
+@endsection
+
+@section('sidebar-publish')
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/dashboard">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <!-- End Dashboard Nav -->
+            <li class="nav-heading">Pages</li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/posts">
+                    <i class='bx bx-globe'></i>
+                    <span>Posts</span>
+                </a>
+            </li>
+            <!-- End Profile Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('publish')}}">
+                    <i class='bx bx-book' ></i>
+                    <span>Publish</span>
+                </a>
+            </li>
+            <!-- End F.A.Q Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/comments">
+                    <i class='bx bx-message-dots' ></i>
+                    <span>Comments</span>
+                </a>
+            </li>
+            <!-- End F.A.Q Page Nav -->
+        </ul>
+    </aside>
+    <!-- End Sidebar-->
+@endsection
+
+@section('sidebar-comments')
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/dashboard">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <!-- End Dashboard Nav -->
+            <li class="nav-heading">Pages</li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/posts">
+                    <i class='bx bx-globe'></i>
+                    <span>Posts</span>
+                </a>
+            </li>
+            <!-- End Profile Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{route('publish')}}">
+                    <i class='bx bx-book' ></i>
+                    <span>Publish</span>
+                </a>
+            </li>
+            <!-- End F.A.Q Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link" href="/comments">
                     <i class='bx bx-message-dots' ></i>
                     <span>Comments</span>
                 </a>

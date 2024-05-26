@@ -30,7 +30,7 @@
 <body>
     
     @yield('header')
-    @yield('sidebar')
+    @yield('sidebar-dashboard')
 
     <main id="main" class="main">
         <div class="pagetitle">

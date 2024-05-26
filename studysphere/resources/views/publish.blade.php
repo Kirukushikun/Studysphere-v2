@@ -30,7 +30,7 @@
 <body>
     
     @yield('header')
-    @yield('sidebar')
+    @yield('sidebar-publish')
 
     <main id="main" class="main">
         <div class="pagetitle position-relative">
