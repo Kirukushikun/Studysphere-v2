@@ -32,7 +32,8 @@ Route::get('post/view/{id}', [PostController::class, 'viewPost'])->name('post.vi
 
 Route::get('/comments', [PostController::class, 'loadComments'])->name('comments');
 
-Route::post('/comment', [PostController::class, 'addComment'])->name('comment.post');//ADD
+Route::post('/comment', [PostController::class, 'addComment'])->name('comment.post');//ADD COMMENT
+Route::delete('/comment/{id}', [PostController::class, 'deleteComment'])->name('comment.delete');//DELETE
 
 Route::get('/user', function () {
     return view('userprofile');

@@ -89,4 +89,10 @@ class PostController extends Controller
         }
         return redirect()->route('login');
     }
+
+    //DELETE POST
+    function deleteComment(Comments $id){
+        $id->delete();
+        return redirect()->route('comments');
+    }
 }

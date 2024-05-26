@@ -31,6 +31,8 @@
         .icon{
             cursor: pointer;
             transition: 0.3s;
+            border-style:none;
+            background-color:transparent;            
         }
         .icon:hover{
             transform: scale(1.2);
@@ -80,7 +82,15 @@
                                             <h5>{{ $comment->author_name }}</h5>
                                         </div>
                                         <div class="action d-flex" style="font-size:25px;">
-                                            <i class='icon trash bx bx-trash'></i>
+                                            
+                                            <form action="{{route('comment.delete', $comment->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="icon">
+                                                    <i class='trash bx bx-trash'></i>
+                                                </button>
+                                            </form>
+                                            
                                         </div>
                                     </div>
                                     <p>{{ $comment->comment }}</p>
@@ -101,8 +111,16 @@
                                             <h5>{{ $comment->author_name }}</h5>
                                         </div>
                                         <div class="action d-flex" style="font-size:25px; gap: 5px;">
-                                            <i class='icon red bx bx-check' ></i>
-                                            <i class='icon green bx bx-x' ></i>
+                                            <button class="icon">
+                                                <i class='icon green bx bx-check' ></i>
+                                            </button>
+                                            <form action="{{route('comment.delete', $comment->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="icon">
+                                                    <i class='icon red bx bx-x' ></i>
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                     <p>{{ $comment->comment }}</p>
