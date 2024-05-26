@@ -27,9 +27,11 @@ Route::get('/user', function () {
     return view('userprofile');
 });
 
-Route::get('/dashboard', function () {
-    return view('dash');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dash');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [PostController::class, 'dashboard'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/form', [PostController::class, 'post'])->name('post.load');

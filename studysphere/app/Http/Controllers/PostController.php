@@ -11,6 +11,22 @@ use App\Models\Comments;
 class PostController extends Controller
 {
 
+    //LOAD DASHBOARD
+    function dashboard(){
+        if(Auth::check()){
+            $posts = Post::where('user_id', Auth::id())->count();
+            $unpublished = Post::where('user_id', Auth::id())->where('status', 'unpublished')->count();
+            $published = Post::where('user_id', Auth::id())->where('status', 'published')->count();
+
+            return view('/dash', [
+                'posts' => $posts,
+                'un' => $unpublished,
+                'pu' => $published,
+            ]);
+        }
+        return redirect()->route('login');
+    }
+
     //LOAD PUBLISHMANAGER
     function loadPost(){
         if(Auth::check()){

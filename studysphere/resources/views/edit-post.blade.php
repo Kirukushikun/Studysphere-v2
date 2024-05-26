@@ -40,8 +40,8 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item">Tables</li>
-                        <li class="breadcrumb-item active">Data</li>
+                        <li class="breadcrumb-item">Publish</li>
+                        <li class="breadcrumb-item active">Edit Post</li>
                     </ol>
                 </nav>
                 
