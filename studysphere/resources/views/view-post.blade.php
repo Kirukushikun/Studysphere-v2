@@ -52,11 +52,10 @@
                 <div class="card-body" style="height:100%;">
                     <h4 class="card-title">{{$post->subject}}</h4>
                     <h5 class="card-subtitle mb-3 text-muted"><b>Author: </b>{{ Auth::user()->name }}</h5>
-                    <h5 class="card-subtitle mb-3 text-muted"><b>Status: </b>{{ $post->status }}</h5>
+                    <h5 class="card-subtitle mb-3 text-muted" style="text-transform:capitalize;"><b>Status: </b>{{ $post->status }}</h5>
                     <h5 class="card-subtitle mb-3 text-muted"><b>Post: 
                     <br>
                     </b>{{$post->post}}</h5>
-                    
                 </div>
             </div>
 

@@ -16,9 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('subject');
+            $table->string('author_name');
+            $table->string('subject', 255);
             $table->enum('status', ['unpublished', 'published']);
-            $table->string('post');
+            $table->string('post', 255);
             
             $table->timestamps();
         });

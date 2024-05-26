@@ -19,9 +19,7 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::get('/posts', function () {
-    return view('posts');
-});
+Route::get('/posts', [PostController::class, 'posts'])->name('posts');
 
 Route::get('/postmanager', [PostController::class, 'loadPost'])->name('postmanager');
 
@@ -32,13 +30,9 @@ Route::delete('/form/{id}', [PostController::class, 'deletePost'])->name('post.d
 Route::get('post/edit/{id}', [PostController::class, 'editPost'])->name('post.edit');//EDIT
 Route::get('post/view/{id}', [PostController::class, 'viewPost'])->name('post.view');//VIEW
 
-Route::get('/edit', function () {
-    return view('edit-post');
-});
+Route::get('/comments', [PostController::class, 'loadComments'])->name('comments');
 
-Route::get('/comments', function () {
-    return view('comments');
-});
+Route::post('/comment', [PostController::class, 'addComment'])->name('comment.post');//ADD
 
 Route::get('/user', function () {
     return view('userprofile');

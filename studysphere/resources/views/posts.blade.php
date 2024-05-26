@@ -36,58 +36,59 @@
             </a>
         </div>
         <!-- End Logo -->
-
         <nav class="header-nav ms-auto">
-            <ul class="d-flex align-items-center">
+            @auth
+                <ul class="d-flex align-items-center">
+                    <li class="nav-item dropdown pe-3">
+                        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" />
+                            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
+                        </a>
+                        <!-- End Profile Iamge Icon -->
 
-                <li class="nav-item dropdown pe-3">
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" />
-                        <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
-                    </a>
-                    <!-- End Profile Iamge Icon -->
-
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                        <li class="dropdown-header">
-                            <h6>{{ Auth::user()->name }}</h6>
-                            <span>Web Designer</span>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <x-responsive-nav-link :href="route('profile.edit')" class="dropdown-item d-flex align-items-center">
-                                <i class="bi bi-gear"></i>
-                                <span>
-                                    {{ __('Profile') }}
-                                <span>
-                            </x-responsive-nav-link>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <form method="POST" action="{{ route('logout')}}">
-                                @csrf
-                                <x-responsive-nav-link :href="route('logout')" class="dropdown-item d-flex align-items-center"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    <i class="bi bi-box-arrow-right"></i>
-                                    <span>{{ __('Log Out') }}</span>
-                                </x-responsive-nav-link>                               
-                            </form>
-                        </li>
-                    </ul>
-                    <!-- End Profile Dropdown Items -->
-                </li>
-                <!-- End Profile Nav -->
-            </ul>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li class="dropdown-header">
+                                <h6>{{ Auth::user()->name }}</h6>
+                                <span>Web Designer</span>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <x-responsive-nav-link :href="route('profile.edit')" class="dropdown-item d-flex align-items-center">
+                                    <i class="bi bi-gear"></i>
+                                    <span>
+                                        {{ __('Profile') }}
+                                    <span>
+                                </x-responsive-nav-link>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout')}}">
+                                    @csrf
+                                    <x-responsive-nav-link :href="route('logout')" class="dropdown-item d-flex align-items-center"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        <span>{{ __('Log Out') }}</span>
+                                    </x-responsive-nav-link>                               
+                                </form>
+                            </li>
+                        </ul>
+                        <!-- End Profile Dropdown Items -->
+                    </li>
+                </ul>
+            @else
+                <button type="button" class="btn btn-outline-primary me-3" onclick="location.href='login'"><b>Login</b></button>
+            @endauth
         </nav>
         <!-- End Icons Navigation -->
     </header>
@@ -96,37 +97,45 @@
     <br>
     <br>
     <br>
-
-    <div class="card m-auto mb-5 col-9">
-        <div class="card-body">
-            <h4 class="card-title">Card with header and footer</h4>
-            <h5 class="card-subtitle mb-3 text-muted"><b>Author: </b>Iverson Guno</h5>
-            Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti
-            inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse
-            natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus
-            voluptas. Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem
-            numquam. Enim fuga ipsum dolor nulla quia ut. Rerum dolor voluptatem et deleniti libero
-            totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
-        </div>
-        <div class="card-footer">
-            <h5 class="card-subtitle mb-3 text-muted"><b>Comments:</b></h5>
-            <!-- Comment -->
-            <div class="comment ms-3 mb-4">
-                <div class="profile d-flex">
-                    <i class="bi bi-person-circle me-2"></i>
-                    <h5>Iverson Guno</h5>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptate!</p>
+    @foreach($posts as $post)
+        <div class="card m-auto mb-5 col-9">
+            <div class="card-body">
+                <h4 class="card-title">{{$post->subject}}</h4>
+                <h5 class="card-subtitle mb-3 text-muted"><b>Author: </b>{{$post->author_name}}</h5>
+                {{$post->post}}
             </div>
-            <!-- End Comment -->
-            <hr>
-            <div class="form-group d-flex">
-                <input type="email" class="form-control me-2" placeholder="Enter a Comment">
-                <button class="btn btn-primary">Comment</button>
+            <div class="card-footer">
+                <h5 class="card-subtitle mb-3 text-muted"><b>Comments:</b></h5>
+                <!-- Comment -->
+                @foreach($post->comments as $comment)
+                    @if ($comment->status == 'approved')
+                        <div class="comment ms-3 mb-4">
+                            <div class="profile d-flex">
+                                <i class="bi bi-person-circle me-2"></i>
+                                <h5>{{ $comment->author_name }}</h5>
+                            </div>
+                            <p>{{ $comment->comment }}</p>
+                        </div>
+                    @endif
+                @endforeach
+                <!-- End Comment -->
+                <hr>
+                <form action="{{route('comment.post')}}" method="POST">
+                    @csrf
+                    <div class="form-group d-flex">
+                        <input type="hidden" value="{{$post->id}}" name="post">
+                        @if($post->post_id == Auth::id())
+                            <input type="hidden" value="approved" name="status">
+                        @else
+                            <input type="hidden" value="pending" name="status">
+                        @endauth
+                        <input type="text" class="form-control me-2" name="comment" placeholder="Enter a Comment">
+                        <button class="btn btn-primary" type="submit">Comment</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-
+    @endforeach
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

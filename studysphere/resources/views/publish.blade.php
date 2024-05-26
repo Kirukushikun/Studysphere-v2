@@ -65,26 +65,26 @@
                                 </thead>
                                 <tbody>
                                     @foreach($posts as $post)
-                                    <tr>
-                                        <td>{{$post->subject}}</td>
-                                        <td>{{$post->post}}</td>
-                                        <td>{{$post->status}}</td>
-                                        <td class="d-flex justify-content-between">
-                                            <button class="btn btn-info me-2" onclick="location.href='{{ route('post.view', $post->id) }}'">
-                                                <i class="bi bi-box-arrow-in-right"></i>
-                                            </button>
-                                            <button class="btn btn-success me-2" onclick="location.href='{{ route('post.edit', $post->id) }}'">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </button>
-                                            <form action="{{route('post.delete', $post->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger" type="submit" id="delete">
-                                                    <i class="bi bi-trash"></i>
+                                        <tr>
+                                            <td>{{$post->subject}}</td>
+                                            <td>{{$post->post}}</td>
+                                            <td>{{$post->status}}</td>
+                                            <td class="d-flex justify-content-between">
+                                                <button class="btn btn-info me-2" onclick="location.href='{{ route('post.view', $post->id) }}'">
+                                                    <i class="bi bi-box-arrow-in-right"></i>
                                                 </button>
-                                            </form>
-                                        </td>
-                                    </tr>                                    
+                                                <button class="btn btn-success me-2" onclick="location.href='{{ route('post.edit', $post->id) }}'">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+                                                <form action="{{route('post.delete', $post->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" type="submit" id="delete">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>                                    
                                     @endforeach
 
                                 </tbody>

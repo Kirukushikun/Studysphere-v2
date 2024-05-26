@@ -26,6 +26,22 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <style>
+        .icon{
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .icon:hover{
+            transform: scale(1.2);
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+    </style>
 </head>
 <body>
 
@@ -45,40 +61,59 @@
             
         </div>
         <!-- End Page Title -->
-
-        <section class="section">
-            <div class="card m-auto mb-3">
-                <div class="card-body">
-                    <h4 class="card-title">Card with header and footer</h4>
-                    Ut in ea error laudantium quas omnis officia. Sit sed praesentium voluptas. Corrupti
-                    inventore consequatur nisi necessitatibus modi consequuntur soluta id. Enim autem est esse
-                    natus assumenda. Non sunt dignissimos officiis expedita. Consequatur sint repellendus
-                    voluptas. Quidem sit est nulla ullam. Suscipit debitis ullam iusto dolorem animi dolorem
-                    numquam. Enim fuga ipsum dolor nulla quia ut. Rerum dolor voluptatem et deleniti libero
-                    totam numquam nobis distinctio. Sit sint aut. Consequatur rerum in.
-                </div>
-                <div class="card-footer">
-                    <h5 class="card-subtitle mb-3 text-muted"><b>Comments:</b></h5>
-                    <!-- Comment -->
-                    <div class="comment ms-3 mb-4">
-                        <div class="profile d-flex justify-content-between">
-                            <div class="details d-flex">
-                                <i class="bi bi-person-circle me-2"></i>
-                                <h5>Iverson Guno</h5>
-                            </div>
-                            <div class="action d-flex" style="font-size:25px;">
-                                <i class='bx bx-check' ></i>
-                                <i class='bx bx-x' ></i>
-                                <i class='bx bx-trash'></i>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptate!</p>
+        @foreach($posts as $post)
+            <section class="section">
+                <div class="card m-auto mb-3">
+                    <div class="card-body mb-4">
+                        <h3 class="card-title">{{$post->subject}}</h3>
+                        {{$post->post}}
                     </div>
-                    <!-- End Comment -->
+                    <div class="card-footer">
+                        <h5 class="card-subtitle mb-3 text-muted"><b>Comments:</b></h5>
+                        <!-- Display Comments -->
+                        @foreach($post->comments as $comment)
+                            @if ($comment->status == 'approved')
+                                <div class="comment ms-3 mb-4">
+                                    <div class="profile d-flex justify-content-between">
+                                        <div class="details d-flex">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                            <h5>{{ $comment->author_name }}</h5>
+                                        </div>
+                                        <div class="action d-flex" style="font-size:25px;">
+                                            <i class='icon trash bx bx-trash'></i>
+                                        </div>
+                                    </div>
+                                    <p>{{ $comment->comment }}</p>
+                                </div>
+                            @endif
+                        @endforeach
+                        <!-- End Comments -->
+                    </div>
+                    <div class="card-footer">
+                        <h5 class="card-subtitle mb-3 text-muted"><b>Pending Comments:</b></h5>
+                        <!-- Display Comments -->
+                        @foreach($post->comments as $comment)
+                            @if ($comment->status == 'pending')
+                                <div class="comment ms-3 mb-4">
+                                    <div class="profile d-flex justify-content-between">
+                                        <div class="details d-flex">
+                                            <i class="bi bi-person-circle me-2"></i>
+                                            <h5>{{ $comment->author_name }}</h5>
+                                        </div>
+                                        <div class="action d-flex" style="font-size:25px; gap: 5px;">
+                                            <i class='icon red bx bx-check' ></i>
+                                            <i class='icon green bx bx-x' ></i>
+                                        </div>
+                                    </div>
+                                    <p>{{ $comment->comment }}</p>
+                                </div>
+                            @endif
+                        @endforeach
+                        <!-- End Comments -->
+                    </div>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        @endforeach
     </main>
     <!-- End #main -->
 
