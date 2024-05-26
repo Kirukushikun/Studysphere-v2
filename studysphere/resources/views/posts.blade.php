@@ -97,6 +97,7 @@
     <br>
     <br>
     <br>
+
     @foreach($posts as $post)
         <div class="card m-auto mb-5 col-9">
             <div class="card-body">
@@ -124,11 +125,6 @@
                     @csrf
                     <div class="form-group d-flex">
                         <input type="hidden" value="{{$post->id}}" name="post">
-                        @if($post->post_id == Auth::id())
-                            <input type="hidden" value="approved" name="status">
-                        @else
-                            <input type="hidden" value="pending" name="status">
-                        @endauth
                         <input type="text" class="form-control me-2" name="comment" placeholder="Enter a Comment">
                         <button class="btn btn-primary" type="submit">Comment</button>
                     </div>

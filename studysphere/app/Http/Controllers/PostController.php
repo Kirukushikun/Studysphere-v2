@@ -55,6 +55,18 @@ class PostController extends Controller
         return view('/edit-post', ['post' => $post]);
     }
 
+    //UPDATE POST
+    function updatePost(Request $request, $id) {
+        $data['subject'] = $request->subject;
+        $data['status'] = $request->status;
+        $data['post'] = $request->post;
+
+        $update = Post::findOrFail($id);
+        $update->update($data);
+
+        return redirect()->route('postmanager');
+    }
+
     //VIEW POST
     function viewPost($id) {
         $post = Post::findOrFail($id);
@@ -80,7 +92,12 @@ class PostController extends Controller
             $data['user_id'] = auth()->user()->id;
             $data['post_id'] = $request->post;
             $data['author_name'] = auth()->user()->name;
-            $data['status'] = $request->status;
+            
+            if(Auth::id() == $request->post){
+                $data['status'] = 'approved';
+            }else{
+                $data['status'] = 'pending';
+            }
             $data['comment'] = $request->comment;
 
             $user = Comments::create($data);
@@ -90,7 +107,16 @@ class PostController extends Controller
         return redirect()->route('login');
     }
 
-    //DELETE POST
+    //APPROVE COMMENT
+    function updateComment(Request $request, $id){
+        $data['status'] = 'approved';
+        $update = Comments::findOrFail($id);
+        $update->update($data);
+
+        return redirect()->route('comments');
+    }
+
+    //DELETE/REJECT COMMENT
     function deleteComment(Comments $id){
         $id->delete();
         return redirect()->route('comments');

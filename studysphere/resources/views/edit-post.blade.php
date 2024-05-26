@@ -51,7 +51,9 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title text-center">Edit post</h5>
-                    <form class="row g-3">
+                    <form class="row g-3" action="{{route('post.update', $post->id)}}" method="POST">
+                        @csrf
+                        @method('PATCH')
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="floatingName" name="subject" placeholder="Subject" value="{{$post->subject}}"/>
@@ -79,6 +81,7 @@
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>
+
                 </div>
             </div>
 

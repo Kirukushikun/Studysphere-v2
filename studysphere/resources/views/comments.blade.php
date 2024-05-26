@@ -111,9 +111,13 @@
                                             <h5>{{ $comment->author_name }}</h5>
                                         </div>
                                         <div class="action d-flex" style="font-size:25px; gap: 5px;">
-                                            <button class="icon">
-                                                <i class='icon green bx bx-check' ></i>
-                                            </button>
+                                            <form action="{{route('comment.update', $comment->id)}}" method="POST">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button type="submit" class="icon" >
+                                                    <i class='icon green bx bx-check' ></i>
+                                                </button>                                                
+                                            </form>
                                             <form action="{{route('comment.delete', $comment->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
