@@ -16,20 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::get('/posts', function () {
     return view('posts');
 });
 
-Route::get('/publish', [PostController::class, 'loadPost'])->name('publish');
+Route::get('/postmanager', [PostController::class, 'loadPost'])->name('postmanager');
 
-Route::get('/add', function () {
-    return view('add-post');
-});
+Route::get('/form', [PostController::class, 'post'])->name('post.load');
 
-Route::post('/addpost', [PostController::class, 'addPost'])->name('post.add');
+Route::post('/form', [PostController::class, 'addPost'])->name('post.post');//ADD
+Route::delete('/form/{id}', [PostController::class, 'deletePost'])->name('post.delete');//DELETE
+Route::get('form/edit/{id}', [PostController::class, 'editPost'])->name('post.edit');
 
 
 Route::get('/comments', function () {

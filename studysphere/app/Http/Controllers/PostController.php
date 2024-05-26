@@ -10,7 +10,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
 
-    //LOAD TASK
+    //LOAD PUBLISHMANAGER
     function loadPost(){
         if(Auth::check()){
             $posts = Post::where('user_id', Auth::id())->orderBy('created_at', 'asc')->get();
@@ -19,7 +19,15 @@ class PostController extends Controller
         return redirect()->route('login');
     }
 
-    //ADD TASK
+    //LOAD TASK FORM
+    function post(){
+        if(Auth::check()){
+            return view('/add-post');
+        }
+        return redirect()->route('login');
+    }
+
+    //ADD POST
     function addPost(Request $request){ 
 
         $data['subject'] = $request->subject;
@@ -29,6 +37,18 @@ class PostController extends Controller
 
         $user = Post::create($data);
 
-        return redirect()->route('publish');
+        return redirect()->route('postmanager');
+    }
+
+    //DELETE POST
+    function deletePost(Post $id){
+        $id->delete();
+        return redirect()->route('postmanager');
+    }
+
+    //EDIT POST
+    function editPost($id) {
+        $post = Post::findOrFail($id);
+        return view('edit-post', ['post' => $post]);
     }
 }

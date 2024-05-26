@@ -164,7 +164,7 @@
             <!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{route('publish')}}">
+                <a class="nav-link collapsed" href="{{route('postmanager')}}">
                     <i class='bx bx-book' ></i>
                     <span>Publish</span>
                 </a>
@@ -207,7 +207,7 @@
             <!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" href="{{route('publish')}}">
+                <a class="nav-link" href="{{route('postmanager')}}">
                     <i class='bx bx-book' ></i>
                     <span>Publish</span>
                 </a>
@@ -250,7 +250,7 @@
             <!-- End Profile Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{route('publish')}}">
+                <a class="nav-link collapsed" href="{{route('postmanager')}}">
                     <i class='bx bx-book' ></i>
                     <span>Publish</span>
                 </a>

@@ -52,11 +52,10 @@
                     <h5 class="card-title text-center">Add new post</h5>
 
                     <!-- Floating Labels Form -->
-                    <form class="row g-3" action="{{route('post.post')}}" method="POST">
-                        @csrf
+                    <form class="row g-3">
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingName" name="subject" placeholder="Subject" />
+                                <input type="text" class="form-control" id="floatingName" name="subject" placeholder="Subject" value="{{$post->subject}}"/>
                                 <label for="floatingName">Subject</label>
                             </div>
                         </div>
@@ -71,13 +70,13 @@
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Post" id="floatingTextarea" name="post" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Post" id="floatingTextarea" name="post" style="height: 100px">{{$post->post}}</textarea>
                                 <label for="floatingTextarea">Post</label>
                             </div>
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>

@@ -35,7 +35,7 @@
     <main id="main" class="main">
         <div class="pagetitle position-relative">
             <h1>Data Tables</h1>
-            <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3" onclick="location.href='/add'">Add new post</button>
+            <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3" onclick="location.href='{{route('post.load')}}'">Add new post</button>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -70,15 +70,19 @@
                                         <td>{{$post->post}}</td>
                                         <td>{{$post->status}}</td>
                                         <td class="d-flex justify-content-between">
-                                            <button class="btn btn-info me-2">
+                                            <button class="btn btn-info me-2" >
                                                 <i class="bi bi-box-arrow-in-right"></i>
                                             </button>
-                                            <button class="btn btn-success me-2">
+                                            <button class="btn btn-success me-2" onclick="location.href='{{ route('post.edit', $post->id) }}'">
                                                 <i class="bi bi-pencil-square"></i>
                                             </button>
-                                            <button class="btn btn-danger ">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
+                                            <form action="{{route('post.delete', $post->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger" type="submit" id="delete">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>                                    
                                     @endforeach
