@@ -112,19 +112,15 @@ class PostController extends Controller
                 'comment' => $request->comment,
             ];
 
-            // Fetch the post to check its owner
             $post = Post::find($request->post);
 
-            // Set the status based on the ownership of the post
             if (Auth::id() == $post->user_id) {
                 $data['status'] = 'approved';
             } else {
                 $data['status'] = 'pending';
             }
-
-            // Create the comment
+            
             Comments::create($data);
-
             return redirect()->route('posts');
         }
 
