@@ -23,17 +23,13 @@ Route::get('/posts', [PostController::class, 'posts'])->name('posts');
 
 Route::get('/postmanager', [PostController::class, 'loadPost'])->name('postmanager');
 
-Route::get('/user', function () {
-    return view('userprofile');
-});
-
-// Route::get('/dashboard', function () {
-//     return view('dash');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/dashboard', [PostController::class, 'dashboard'])->name('dashboard');
 
+Route::get('/comments', [PostController::class, 'loadComments'])->name('comments');
+Route::post('/comment', [PostController::class, 'addComment'])->name('comment.post');//ADD COMMENT
+
 Route::middleware('auth')->group(function () {
+
     Route::get('/form', [PostController::class, 'post'])->name('post.load');
     Route::post('/form', [PostController::class, 'addPost'])->name('post.post');//ADD
     Route::delete('/form/{id}', [PostController::class, 'deletePost'])->name('post.delete');//DELETE
@@ -41,9 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('post/edit/{id}', [PostController::class, 'updatePost'])->name('post.update');//EDIT
     Route::get('post/view/{id}', [PostController::class, 'viewPost'])->name('post.view');//VIEW
 
-    Route::get('/comments', [PostController::class, 'loadComments'])->name('comments');
-
-    Route::post('/comment', [PostController::class, 'addComment'])->name('comment.post');//ADD COMMENT
     Route::delete('/comment/{id}', [PostController::class, 'deleteComment'])->name('comment.delete');//DELETE
     Route::patch('/comment/{id}', [PostController::class, 'updateComment'])->name('comment.update');//APPROVE
 

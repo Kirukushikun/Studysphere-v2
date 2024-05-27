@@ -103,7 +103,7 @@
             <div class="card-body">
                 <h4 class="card-title">{{$post->subject}}</h4>
                 <h5 class="card-subtitle mb-3 text-muted"><b>Author: </b>{{$post->author_name}}</h5>
-                {{$post->post}}
+                <p>{{$post->post}}</p>
             </div>
             <div class="card-footer">
                 <h5 class="card-subtitle mb-3 text-muted"><b>Comments:</b></h5>
@@ -125,13 +125,14 @@
                     @csrf
                     <div class="form-group d-flex">
                         <input type="hidden" value="{{$post->id}}" name="post">
-                        <input type="text" class="form-control me-2" name="comment" placeholder="Enter a Comment">
+                        <input type="text" class="form-control me-2" name="comment" placeholder="Enter a Comment" required>
                         <button class="btn btn-primary" type="submit">Comment</button>
                     </div>
                 </form>
             </div>
         </div>
     @endforeach
+
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

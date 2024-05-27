@@ -101,24 +101,33 @@ class PostController extends Controller
         return view('comments', ['posts' => $posts]);
     }
 
-    //ADD COMMENT
-    function addComment(Request $request){ 
-        if(Auth::check()){
-            $data['user_id'] = auth()->user()->id;
-            $data['post_id'] = $request->post;
-            $data['author_name'] = auth()->user()->name;
-            
-            if(Auth::id() == $request->post){
+    // ADD COMMENT
+    public function addComment(Request $request)
+    {
+        if (Auth::check()) {
+            $data = [
+                'user_id' => auth()->user()->id,
+                'post_id' => $request->post,
+                'author_name' => auth()->user()->name,
+                'comment' => $request->comment,
+            ];
+
+            // Fetch the post to check its owner
+            $post = Post::find($request->post);
+
+            // Set the status based on the ownership of the post
+            if (Auth::id() == $post->user_id) {
                 $data['status'] = 'approved';
-            }else{
+            } else {
                 $data['status'] = 'pending';
             }
-            $data['comment'] = $request->comment;
 
-            $user = Comments::create($data);
+            // Create the comment
+            Comments::create($data);
 
-            return redirect()->route('posts');            
+            return redirect()->route('posts');
         }
+
         return redirect()->route('login');
     }
 
