@@ -16,26 +16,34 @@
                                         @csrf
                                         <div class="col-12">
                                             <x-input-label for="name" :value="__('Your Name')" class="form-label" />
-                                            <x-text-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                                            <x-input-error :messages="$errors->get('Please, enter your name!')" class="invalid-feedback" />
+                                            <input id="name" class="form-control @error('name') is-invalid @enderror" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                            @error('name')
+                                                <small class="text-danger">{{$message}}</small>
+                                            @enderror
                                         </div>
 
                                         <div class="col-12">
                                             <x-input-label for="email" :value="__('Your Email')" class="form-label"/>
-                                            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username" />
-                                            <x-input-error :messages="$errors->get('Please enter a valid Email adddress!')" class="invalid-feedback" />
+                                            <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                                            @error('email')
+                                                <small class="text-danger">{{$message}}</small>
+                                            @enderror
                                         </div>
 
                                         <div class="col-12">
                                             <x-input-label for="password" :value="__('Password')" class="form-label"/>
-                                            <x-text-input id="password" class="form-control" type="password" name="password" required autocomplete="new-password" />
-                                            <x-input-error :messages="$errors->get('Please enter your password!')" class="invalid-feedback" />
+                                            <input id="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" required autocomplete="new-password" />
+                                            @error('password')
+                                                <small class="text-danger">{{$message}}</small>
+                                            @enderror
                                         </div>
 
                                         <div class="col-12">
                                             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-                                            <x-text-input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
-                                            <x-input-error :messages="$errors->get('Please confirm your password!')" class="invalid-feedback"/>
+                                            <input id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" type="password" name="password_confirmation" required autocomplete="new-password" />
+                                            @error('password_confirmation')
+                                                <small class="text-danger">{{$message}}</small>
+                                            @enderror
                                         </div>
 
                                         <div class="col-12">

@@ -178,6 +178,14 @@
                 </a>
             </li>
             <!-- End F.A.Q Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/profile">
+                    <i class='bx bx-message-dots' ></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <!-- Profile -->
         </ul>
     </aside>
     <!-- End Sidebar-->
@@ -221,6 +229,14 @@
                 </a>
             </li>
             <!-- End F.A.Q Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/profile">
+                    <i class='bx bx-message-dots' ></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <!-- Profile -->
         </ul>
     </aside>
     <!-- End Sidebar-->
@@ -264,6 +280,14 @@
                 </a>
             </li>
             <!-- End F.A.Q Page Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/profile">
+                    <i class='bx bx-message-dots' ></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <!-- Profile -->
         </ul>
     </aside>
     <!-- End Sidebar-->

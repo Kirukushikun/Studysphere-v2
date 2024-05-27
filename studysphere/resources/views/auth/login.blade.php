@@ -27,19 +27,23 @@
                                             <label for="yourUsername" class="form-label" >Email</label>
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                                <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-                                                <x-input-error :messages="$errors->get('Please enter your email.')" class="invalid-feedback" />
+                                                <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                                                @error('email')
+                                                <small class="text-danger">{{$message}}</small>
+                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="col-12">
                                             <x-input-label for="password" :value="__('Password')" class="form-label"/>
-                                            <x-text-input id="password" class="form-control"
+                                            <input id="password" class="form-control @error('password') is-invalid @enderror"
                                                 type="password"
                                                 name="password"
                                                 required autocomplete="current-password"
                                             />
-                                            <x-input-error :messages="$errors->get('password')" class="invalid-feedback" />
+                                            @error('password')
+                                                <small class="text-danger">{{$message}}</small>
+                                            @enderror
                                         </div>
 
                                         <div class="col-12">

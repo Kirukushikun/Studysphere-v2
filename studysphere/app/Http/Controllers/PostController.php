@@ -60,7 +60,6 @@ class PostController extends Controller
 
     //DELETE POST
     function deletePost(Post $id){
-        $comment = Comments::where('post_id', $id)->delete();
         $id->delete();
         return redirect()->route('postmanager');
     }

@@ -56,7 +56,7 @@
                         @csrf
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingName" name="subject" placeholder="Subject" />
+                                <input type="text" class="form-control" id="floatingName" name="subject" placeholder="Subject" required/>
                                 <label for="floatingName">Subject</label>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Post" id="floatingTextarea" name="post" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Post" id="floatingTextarea" name="post" style="height: 100px" required></textarea>
                                 <label for="floatingTextarea">Post</label>
                             </div>
                         </div>
